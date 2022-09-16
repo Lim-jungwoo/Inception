@@ -1,6 +1,6 @@
 # !/bin/sh
 
-cat .setup > /dev/null
+cat .setup 2> /dev/null
 
 if [ $? -ne 0]; then
 	/usr/bin/mysqld_safe --datadir=/var/lib/mysql &
