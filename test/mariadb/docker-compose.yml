@@ -1,0 +1,35 @@
+version: '3.0'
+
+mariadb:
+  build: ${VOLPATH}/mariadb/
+  container_name: mariadb
+  environment:
+    - HOST_NAME=${HOST_NAME}
+    - HOST_IPV4=${HOST_IPV4}
+    - HOST_IPV6=${HOST_IPV6}
+    - MARIADB_DB=${MARIADB_DB}
+    - MARAIDB_USER=${MARIADB_USER}
+    - MARIADB_PWD=${MARIADB_PWD}
+    - MARIADB_ADMIN_USER=${MARIADB_ADMIN_USER}
+    - MARIADB_ADMIN_PWD=${MARIADB_ADMIN_PWD}
+  image: mariadb
+  networks:
+    - network-mariadb
+  restart: always
+  volumes:
+    - volume-mariadb:/var/lib/mysql
+
+
+networks:
+  network-mariadb:
+    driver: bridge
+    name: network-mariadb
+
+volumes:
+  volume-mariadb:
+    driver: local
+    driver_opts:
+      device: ${VOLPATH}/mariadb
+      o: bind
+      type: volume
+    name: volume-mariadb
