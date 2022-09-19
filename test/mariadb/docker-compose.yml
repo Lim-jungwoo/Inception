@@ -2,7 +2,7 @@ version: '3.0'
 
 services:
   mariadb:
-    build: ${VOLPATH}/mariadb/
+    build: /home/jlim/Inception/test/mariadb/
     container_name: mariadb
     environment:
       - HOST_NAME=${HOST_NAME}
