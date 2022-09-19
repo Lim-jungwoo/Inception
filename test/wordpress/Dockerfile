@@ -9,7 +9,7 @@ RUN apk update && \
 	chmod +x /usr/bin/wp && \
 	wp core download --version=5.8.1 --path=/var/www/wordpress
 
-# COPY conf/wp-config.php /tmp/wp-config.php
+COPY conf/wp-config.php /tmp/wp-config.php
 COPY tools/script.sh /tmp/script.sh
 
 RUN chmod +x /tmp/script.sh
