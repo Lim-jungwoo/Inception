@@ -2,8 +2,8 @@ FROM alpine:3.13
 
 RUN apk update && \
 	apk add curl mariadb-client \
-#	wget -O /usr/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.5/dumb-init_1.2.5_x86_64 && \
-#	chmod +x /usr/bin/dumb-init && \
+	wget -O /usr/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.5/dumb-init_1.2.5_x86_64 && \
+	chmod +x /usr/bin/dumb-init && \
 	mkdir -p /var/www/wordpress && \
 	curl -s -L https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar --output /usr/bin/wp && \
 	chmod +x /usr/bin/wp && \
@@ -14,6 +14,6 @@ RUN apk update && \
 
 # RUN chmod +x /tmp/script.sh
 
-#ENTRYPOINT [ "/usr/bin/dumb-init", "--" ]
+# ENTRYPOINT [ "/usr/bin/dumb-init", "--" ]
 
 # CMD [ "sh", "-c", "/tmp/script.sh" ]
