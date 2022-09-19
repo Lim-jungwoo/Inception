@@ -10,7 +10,7 @@ if [ $? -eq 0 ]; then
 	echo "env[MARIADB_DB] = \$MARIADB_DB" >> /etc/php7/php-fpm.d/www.conf
 fi
 
-if [ ! -f "/var/www/wordpress/wp-config.php"]; then
+if [ ! -f "/var/www/wordpress/wp-config.php" ]; then
 	cp /tmp/wp-config.php /var/www/wordpress/wp-config.php
 	sleep 5;
 	mysqladmin -h $MARIADB_HOST --user=$MARIADB_USER --password=$MARIADB_PWD --wait=60 ping;
