@@ -13,8 +13,8 @@ if [ $? -ne 0 ]; then
 	fi
 
 	eval "echo \"$(cat /tmp/query.sql)\"" | mariadb
-	touch .setup
 	mysqladmin --user=root --password=abcd shutdown
+	touch .setup
 fi
 
 /usr/bin/mysqld_safe --datadir=/var/lib/mysql
