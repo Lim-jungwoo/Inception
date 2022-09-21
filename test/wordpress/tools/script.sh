@@ -12,9 +12,10 @@ fi
 
 if [ ! -f "/var/www/wordpress/wp-config.php" ]; then
 	cp /tmp/wp-config.php /var/www/wordpress/wp-config.php
-	sleep 5;
-	mysqladmin -h $MARIADB_HOST --user=$MARIADB_USER --password=$MARIADB_PWD --wait=60 ping;
 fi
+
+sleep 5;
+mysqladmin -h $MARIADB_HOST --user=$MARIADB_USER --password=$MARIADB_PWD --wait=60 ping;
 
 
 php-fpm7 --nodaemonize
