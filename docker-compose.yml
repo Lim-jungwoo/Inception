@@ -41,6 +41,7 @@ services:
     image: wordpress
     networks:
       - network-mariadb
+      - network-nginx
     restart: always
     volumes:
       - volume-wordpress:/var/www/wordpress
