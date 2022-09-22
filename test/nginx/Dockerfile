@@ -17,6 +17,6 @@ RUN chmod +x /tmp/script.sh
 
 EXPOSE 443
 
-ENTRYPOINT [ "/usr/bin/dumb-init", "-- "]
+ENTRYPOINT [ "/usr/bin/dumb-init", "--" ]
 
 CMD [ "sh", "-c", "/tmp/script.sh"]

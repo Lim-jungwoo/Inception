@@ -44,11 +44,29 @@ services:
     restart: always
     volumes:
       - volume-wordpress:/var/www/wordpress
+  
+  nginx:
+    build: /home/jlim/Inception/test/nginx/
+    container_name: nginx
+    depends_on:
+      - wordpress
+    image: nginx
+    networks:
+      - network-nginx
+    ports:
+      - '443:443'
+    restart: always
+    volumes:
+      - volume-wordpress:/var/www/wordpress
 
 networks:
   network-mariadb:
     driver: bridge
     name: network-mariadb
+  
+  network-nginx:
+    driver: bridge
+    name: network-nginx
 
 volumes:
   volume-mariadb:
