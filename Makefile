@@ -6,8 +6,7 @@ all:	$(NAME)
 $(NAME):
 	sudo mkdir -p /home/jlim/data/wordpress /home/jlim/data/mariadb
 
-
-ifeq ($(grep jlim.42.fr /etc/hosts), 1)
+ifeq ($(shell grep jlim.42.fr /etc/hosts > /dev/null 2>/dev/null; echo $$?), 1)
 	sudo chmod 777 /etc/hosts
 	sudo echo "127.0.0.1 jlim.42.fr" >> /etc/hosts
 endif
