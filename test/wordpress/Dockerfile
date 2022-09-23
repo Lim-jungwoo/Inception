@@ -1,7 +1,7 @@
 FROM alpine:3.13
 
 RUN apk update && \
-	apk add curl mariadb-client php7 php7-phar php7-json php7-curl php7-fpm && \
+	apk add curl mariadb-client php7 php7-phar php7-json php7-curl php7-fpm php7-mysqli&& \
 	wget -O /usr/bin/dumb-init https://github.com/Yelp/dumb-init/releases/download/v1.2.5/dumb-init_1.2.5_x86_64 && \
 	chmod +x /usr/bin/dumb-init && \
 	mkdir -p /var/www/wordpress && \
@@ -11,7 +11,7 @@ RUN apk update && \
 
 COPY conf/wp-config.php /tmp/wp-config.php
 COPY tools/script.sh /tmp/script.sh
-COPY index.html /var/www/wordpress/index.html;
+COPY index.html /var/www/wordpress/index.html
 
 RUN chmod +x /tmp/script.sh
 
