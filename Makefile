@@ -7,10 +7,9 @@ $(NAME):
 	sudo mkdir -p /home/jlim/data/wordpress /home/jlim/data/mariadb
 
 
-ifeq ("$(.setup)", "")
+ifeq ($(grep jlim.42.fr /etc/hosts), 1)
 	sudo chmod 777 /etc/hosts
 	sudo echo "127.0.0.1 jlim.42.fr" >> /etc/hosts
-	touch .setup
 endif
 
 	sudo docker-compose -f srcs/docker-compose.yml up --force-recreate --build
