@@ -12,7 +12,6 @@ RUN apk update && \
 
 COPY conf/nginx.conf /tmp/nginx.conf
 COPY tools/script.sh /tmp/script.sh
-COPY index.html /var/www/wordpress/index.html;
 
 RUN chmod +x /tmp/script.sh
 
