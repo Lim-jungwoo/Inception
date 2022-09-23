@@ -4,7 +4,7 @@ all:	$(NAME)
 .PHONY:	all
 
 $(NAME):
-	sudo mkdir -p /home/jlim/data/wordpress home/jlim/data/mariadb
+	sudo mkdir -p /home/jlim/data/wordpress /home/jlim/data/mariadb
 
 
 ifeq ("$(.setup)", "")
@@ -13,7 +13,7 @@ ifeq ("$(.setup)", "")
 	touch .setup
 endif
 
-	sudo docker-compose -f srcs/docker-compose.yml --force-recreate --build
+	sudo docker-compose -f srcs/docker-compose.yml up --force-recreate --build
 
 clean:
 	sudo docker-compose -f srcs/docker-compose.yml down -v --rmi all --remove-orphans
