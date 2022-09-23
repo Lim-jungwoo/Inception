@@ -11,7 +11,6 @@ RUN apk update && \
 
 COPY conf/wp-config.php /tmp/wp-config.php
 COPY tools/script.sh /tmp/script.sh
-COPY index.html /var/www/wordpress/index.html
 
 RUN chmod +x /tmp/script.sh
 

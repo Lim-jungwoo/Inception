@@ -2,7 +2,7 @@ version: '3.0'
 
 services:
   mariadb:
-    build: /home/jlim/Inception/test/mariadb/
+    build: /home/jlim/Inception/srcs/requirements/mariadb/
     container_name: mariadb
     environment:
       - HOST_NAME=${HOST_NAME}
@@ -21,7 +21,7 @@ services:
       - volume-mariadb:/var/lib/mysql
   
   wordpress:
-    build: /home/jlim/Inception/test/wordpress/
+    build: /home/jlim/Inception/srcs/requirements/wordpress/
     container_name: wordpress
     depends_on:
       - mariadb
@@ -47,7 +47,7 @@ services:
       - volume-wordpress:/var/www/wordpress
   
   nginx:
-    build: /home/jlim/Inception/test/nginx/
+    build: /home/jlim/Inception/srcs/requirements/nginx/
     container_name: nginx
     depends_on:
       - wordpress
